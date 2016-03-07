@@ -1,13 +1,15 @@
-package fr.derruette.myweebapp2.main;
+package fr.friquerette.myweebapp2.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
 
-public class Starter {
-	public static final Logger logger = LoggerFactory.getLogger(Starter.class);
+@SpringBootApplication
+public class Application {
+	public static final Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String... arg) {
 		// print internal state

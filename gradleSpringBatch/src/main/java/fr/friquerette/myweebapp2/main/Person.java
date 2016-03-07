@@ -1,4 +1,4 @@
-package fr.derruette.myweebapp2.main;
+package fr.friquerette.myweebapp2.main;
 
 public class Person {
 	private String lastName;
