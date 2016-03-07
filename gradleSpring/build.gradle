@@ -1,0 +1,81 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+  repositories {
+      mavenLocal()
+      mavenCentral()
+  }
+   
+  dependencies {        
+	compile 'org.hibernate:hibernate-entitymanager:4.1.7.Final'
+	compile 'org.hibernate:hibernate-envers:4.1.7.Final'
+	compile 'mysql:mysql-connector-java:5.1.9'
+	
+	compile 'org.springframework:spring-context:4.2.1.RELEASE'
+	compile 'org.springframework:spring-core:4.2.1.RELEASE'
+	compile 'org.springframework:spring-webmvc:4.2.1.RELEASE'
+	compile 'org.springframework:spring-web:4.2.1.RELEASE'
+	compile 'org.springframework:spring-tx:4.2.1.RELEASE'
+	compile 'org.springframework:spring-orm:4.2.1.RELEASE'
+	
+	
+	//compile 'org.aspectj:aspectjrt:1.7.4'
+	compile 'jstl:jstl:1.2'
+	//providedCompile 'javax.servlet:servlet-api:2.5'
+	//compile 'javax.servlet:javax.servlet-api:3.1.0'
+	//compile 'javax.servlet:servlet-api:2.5'	
+	//compile 'javax.inject:javax.inject:1'
+	//compile 'javax.servlet.jsp:jsp-api:2.1'
+	compile 'commons-dbcp:commons-dbcp:1.4'
+	
+	compile 'org.slf4j:jcl-over-slf4j:1.7.5'
+	compile 'ch.qos.logback:logback-classic:1.0.13'
+	compile 'org.quartz-scheduler:quartz:2.1.5'
+	compile 'com.sun.jersey:jersey-server:1.8'
+	providedCompile 'org.apache.tomcat:tomcat-catalina:7.0.50'
+  }
+   
+  war {    
+      webInf { from 'src/main/webapp/WEB-INF'} // adds a file-set to the WEB-INF dir.    
+      classpath fileTree('src/main/webapp/WEB-INF/lib') // adds a file-set to the WEB-INF/lib dir.
+      webXml = file('src/main/webapp/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml        
+      // from('src/main/webapp') { include ('bootstrap/css/*.css', 'bootstrap/js/*.js', 'bootstrap/img/*.*')  }
+  }
+   
+  task deploy (dependsOn: war){
+    copy {
+        from "build/libs"
+        into "D:/Apache Software Foundation/Tomcat 8.0/webapps"
+        include "*.war"
+    }
+  }
+
+project.ext {
+  genSrcDir = projectDir.absolutePath + '/src/main/java'
+}
+compileJava {
+  options.compilerArgs += ['-s', project.genSrcDir]
+}
+compileJava.doFirst {
+  task createGenDir << {
+    ant.mkdir(dir: project.genSrcDir)
+  }
+  createGenDir.execute()
+  println 'createGenDir DONE'
+}
+//eclipse.classpath.file.whenMerged {
+//  classpath ->    def genSrc = new org.gradle.plugins.ide.eclipse.model.SourceFolder('src/main/java', null)
+//  classpath.entries.add(genSrc)
+//}
+task afterEclipseImport(description: "Post processing after project generation", group: "IDE") {
+  doLast {
+    compileJava.execute()
+    def classpath = new XmlParser().parse(file(".classpath"))
+    new Node(classpath, "classpathentry", [kind: 'src', path: 'src/main/java']);
+    def writer = new FileWriter(file(".classpath"))
+    def printer = new XmlNodePrinter(new PrintWriter(writer))
+    printer.setPreserveWhitespace(true)
+    printer.print(classpath)
+  }
+}
