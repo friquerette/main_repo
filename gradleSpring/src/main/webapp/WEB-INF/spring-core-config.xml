@@ -38,7 +38,7 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
-                <beans:value>fr.derruette.myweebapp2.entity.Person</beans:value>
+                <beans:value>fr.friquerette.myweebapp2.entity.Person</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -49,13 +49,13 @@
         </beans:property>
     </beans:bean>
      
-    <beans:bean id="personDAO" class="fr.derruette.myweebapp2.dao.PersonDAOImpl">
+    <beans:bean id="personDAO" class="fr.friquerette.myweebapp2.dao.PersonDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    <beans:bean id="personService" class="fr.derruette.myweebapp2.service.PersonServiceImpl">
+    <beans:bean id="personService" class="fr.friquerette.myweebapp2.service.PersonServiceImpl">
         <beans:property name="personDAO" ref="personDAO"></beans:property>
     </beans:bean>
-    <context:component-scan base-package="fr.derruette.myweebapp2" />
+    <context:component-scan base-package="fr.friquerette.myweebapp2" />
      
     <tx:annotation-driven transaction-manager="transactionManager"/>
      
