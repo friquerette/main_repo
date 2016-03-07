@@ -1,0 +1,13 @@
+/Base64Encoder.class
+/CommonsEncoder.class
+/DatatypeConverterEncoder.class
+/HMACSha1SignatureService.class
+/OAuth10aServiceImpl$TimeoutTuner.class
+/OAuth10aServiceImpl.class
+/OAuth20ServiceImpl.class
+/OAuthService.class
+/ServiceBuilder.class
+/SignatureService.class
+/TimestampService.class
+/TimestampServiceImpl$Timer.class
+/TimestampServiceImpl.class
