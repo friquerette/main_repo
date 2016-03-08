@@ -1,4 +1,4 @@
-package fr.friquerette.gradlews;
+package fr.friquerette.gradlews.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;

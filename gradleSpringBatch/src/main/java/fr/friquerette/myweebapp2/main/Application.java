@@ -18,4 +18,5 @@ public class Application {
 		logger.info("coucou");
 		logger.debug("coucou");
 	}
+
 }
