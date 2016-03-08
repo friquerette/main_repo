@@ -1,4 +1,4 @@
-package fr.friquerette.gradlews;
+package fr.friquerette.gradlews.servlet;
 
 import java.io.IOException;
 

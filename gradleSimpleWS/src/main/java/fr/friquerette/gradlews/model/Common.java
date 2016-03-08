@@ -1,4 +1,4 @@
-package fr.friquerette.gradlews.rt;
+package fr.friquerette.gradlews.model;
 
 public class Common {
 

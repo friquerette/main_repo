@@ -17,6 +17,8 @@ import org.apache.oltu.oauth2.common.message.types.ParameterStyle;
 import org.apache.oltu.oauth2.rs.request.OAuthAccessResourceRequest;
 import org.apache.oltu.oauth2.rs.response.OAuthRSResponse;
 
+import fr.friquerette.gradlews.model.Common;
+
 @Path("/resource")
 public class ResourceEndpoint {
 	// @Inject

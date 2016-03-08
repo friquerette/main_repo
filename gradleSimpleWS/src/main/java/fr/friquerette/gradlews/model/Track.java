@@ -1,4 +1,4 @@
-package fr.friquerette.gradlews;
+package fr.friquerette.gradlews.model;
 
 public class Track {
 

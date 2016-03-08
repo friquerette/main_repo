@@ -15,6 +15,7 @@ apply plugin: 'eclipse-wtp'
   def jerseyVersion='1.9.1'
   def restEasyVersion='3.0.4.Final'
   def oltuVersion='1.0.0'
+  def httpclientVersion='4.1.2'
      
   dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
@@ -31,6 +32,9 @@ apply plugin: 'eclipse-wtp'
     compile 'org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:'+oltuVersion
     compile 'org.apache.oltu.oauth2:org.apache.oltu.oauth2.authzserver:'+oltuVersion
     compile 'org.apache.oltu.oauth2:org.apache.oltu.oauth2.resourceserver:'+oltuVersion
+    
+    compile 'org.apache.httpcomponents:httpclient:'+httpclientVersion
+    
     
     runtime 'javax.servlet:jstl:1.1.2'
     
