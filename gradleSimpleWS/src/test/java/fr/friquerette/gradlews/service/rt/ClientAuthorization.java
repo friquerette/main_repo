@@ -1,9 +1,9 @@
 package fr.friquerette.gradlews.service.rt;
 
-import static fr.friquerette.gradlews.service.rt.Constante.CLIENT_ID;
-import static fr.friquerette.gradlews.service.rt.Constante.END_POINT_AUTHORIZATION;
-import static fr.friquerette.gradlews.service.rt.Constante.REDIRECT_URI;
-import static fr.friquerette.gradlews.service.rt.Constante.UTF_8;
+import static fr.friquerette.gradlews.model.Common.CLIENT_ID;
+import static fr.friquerette.gradlews.model.Common.END_POINT_AUTHORIZATION;
+import static fr.friquerette.gradlews.model.Common.REDIRECT_URI;
+import static fr.friquerette.gradlews.model.Common.UTF_8;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,10 +1,10 @@
 package fr.friquerette.gradlews.service.rt;
 
-import static fr.friquerette.gradlews.service.rt.Constante.CLIENT_ID;
-import static fr.friquerette.gradlews.service.rt.Constante.CLIENT_SECRET;
-import static fr.friquerette.gradlews.service.rt.Constante.END_POINT_TOKEN;
-import static fr.friquerette.gradlews.service.rt.Constante.REFRESH_TOKEN;
-import static fr.friquerette.gradlews.service.rt.Constante.UTF_8;
+import static fr.friquerette.gradlews.model.Common.CLIENT_ID;
+import static fr.friquerette.gradlews.model.Common.CLIENT_SECRET;
+import static fr.friquerette.gradlews.model.Common.END_POINT_TOKEN;
+import static fr.friquerette.gradlews.model.Common.REFRESH_TOKEN;
+import static fr.friquerette.gradlews.model.Common.UTF_8;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
