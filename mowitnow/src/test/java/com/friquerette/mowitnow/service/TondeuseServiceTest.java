@@ -1,4 +1,4 @@
-package com.friquerette.mowitnow.dao;
+package com.friquerette.mowitnow.service;
 
 import static com.friquerette.mowitnow.entity.Orientation.E;
 import static com.friquerette.mowitnow.entity.Orientation.N;
@@ -10,7 +10,6 @@ import com.friquerette.mowitnow.entity.Position;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
 import com.friquerette.mowitnow.service.PositionUtil;
-import com.friquerette.mowitnow.service.TondeuseService;
 import com.friquerette.mowitnow.service.TondeuseService;
 import com.friquerette.mowitnow.service.TondeuseServiceImpl;
 

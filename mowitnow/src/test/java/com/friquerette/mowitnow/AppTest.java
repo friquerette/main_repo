@@ -1,6 +1,7 @@
 package com.friquerette.mowitnow;
 
-import com.friquerette.mowitnow.dao.TerrainServiceTest;
+import com.friquerette.mowitnow.service.TerrainServiceTest;
+import com.friquerette.mowitnow.service.TondeuseServiceTest;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -25,7 +26,8 @@ public class AppTest extends TestCase {
 	 */
 	public static Test suite() {
 		TestSuite testSuite = new TestSuite();
-		testSuite.addTest(new TerrainServiceTest());
+		testSuite.addTestSuite(TondeuseServiceTest.class);
+		testSuite.addTestSuite(TerrainServiceTest.class);
 		return testSuite;
 	}
 

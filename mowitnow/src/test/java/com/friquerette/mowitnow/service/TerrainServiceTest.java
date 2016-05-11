@@ -1,4 +1,4 @@
-package com.friquerette.mowitnow.dao;
+package com.friquerette.mowitnow.service;
 
 import static com.friquerette.mowitnow.entity.Orientation.E;
 

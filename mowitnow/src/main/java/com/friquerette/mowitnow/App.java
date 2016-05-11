@@ -1,5 +1,9 @@
 package com.friquerette.mowitnow;
 
+import com.friquerette.mowitnow.entity.Terrain;
+import com.friquerette.mowitnow.service.TerrainService;
+import com.friquerette.mowitnow.service.TerrainServiceImpl;
+
 /**
  * The stater in commande line
  *
@@ -7,7 +11,12 @@ package com.friquerette.mowitnow;
 public class App {
 
 	public static void main(String[] args) {
-		String[] terrain = { "5 5", "1 2 N", "GAGAGAGAA", "3 3 E", "AADAADADDA" };
+
+		TerrainService terrainService = new TerrainServiceImpl();
+
+		Terrain terrain = terrainService.chargerTerrain(DefaultConfig.DEFAULT_TERRAIN);
+
+		terrainService.tondreTerrain(terrain);
 
 	}
 
