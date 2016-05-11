@@ -54,8 +54,8 @@ public class Terrain {
 		return tondeuse;
 	}
 
-	public void setTondeuses(List<Tondeuse> tondeuse) {
-		this.tondeuse = tondeuse;
+	public void setTondeuses(List<Tondeuse> mows) {
+		this.tondeuse = mows;
 	}
 
 	public void addTondeuse(Tondeuse tondeuse) {

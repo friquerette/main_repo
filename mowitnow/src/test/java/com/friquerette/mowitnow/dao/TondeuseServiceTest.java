@@ -11,6 +11,7 @@ import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
 import com.friquerette.mowitnow.service.PositionUtil;
 import com.friquerette.mowitnow.service.TondeuseService;
+import com.friquerette.mowitnow.service.TondeuseService;
 import com.friquerette.mowitnow.service.TondeuseServiceImpl;
 
 import junit.framework.TestCase;

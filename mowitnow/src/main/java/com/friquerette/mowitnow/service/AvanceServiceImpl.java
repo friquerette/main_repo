@@ -18,7 +18,7 @@ public class AvanceServiceImpl implements AvanceService {
 		Position newPosition = new Position();
 		if (position != null && avance != null) {
 			calculerDirection(position, newPosition, avance);
-			avancePosition(position, newPosition, avance);
+			avance(position, newPosition, avance);
 		}
 		return newPosition;
 	}
@@ -59,7 +59,7 @@ public class AvanceServiceImpl implements AvanceService {
 	 * @param avance
 	 * @return
 	 */
-	private Position avancePosition(Position position, Position newPosition, Mouvement avance) {
+	private Position avance(Position position, Position newPosition, Mouvement avance) {
 		Orientation orientation = newPosition.getOrientation();
 		newPosition.setX(position.getX());
 		newPosition.setY(position.getY());
