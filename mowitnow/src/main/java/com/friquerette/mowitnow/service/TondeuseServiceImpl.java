@@ -2,6 +2,8 @@ package com.friquerette.mowitnow.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.friquerette.mowitnow.entity.Mouvement;
 import com.friquerette.mowitnow.entity.Orientation;
 import com.friquerette.mowitnow.entity.Position;
@@ -9,7 +11,15 @@ import com.friquerette.mowitnow.entity.Programme;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
 
+/**
+ * Tondeuse service ...
+ * 
+ * @author Rick
+ *
+ */
 public class TondeuseServiceImpl implements TondeuseService {
+
+	final static Logger logger = Logger.getLogger(TondeuseServiceImpl.class);
 
 	private AvanceService avanceService = new AvanceServiceImpl();
 
@@ -20,7 +30,6 @@ public class TondeuseServiceImpl implements TondeuseService {
 	 * @param tondeuse
 	 * @param avance
 	 */
-	@Override
 	public void executerMouvement(Terrain terrain, Tondeuse tondeuse, Mouvement avance) {
 		Position position = tondeuse.getPosition();
 
@@ -36,7 +45,6 @@ public class TondeuseServiceImpl implements TondeuseService {
 	 * @param terrain
 	 * @param tondeuse
 	 */
-	@Override
 	public void executerProgramme(Terrain terrain, Tondeuse tondeuse) {
 		if (tondeuse != null && tondeuse.getProgramme() != null && tondeuse.getProgramme().getMouvements() != null) {
 			List<Mouvement> mouvements = tondeuse.getProgramme().getMouvements();
@@ -44,15 +52,15 @@ public class TondeuseServiceImpl implements TondeuseService {
 				executerMouvement(terrain, tondeuse, mouvement);
 			}
 			Position position = tondeuse.getPosition();
-			System.out.println(tondeuse.getName() + " a fini en (" + position.getX() + ", " + position.getY() + ", "
-					+ position.getOrientation() + ")");
+			String message = tondeuse.getName() + " termine en position [" + position.getX() + ", " + position.getY()
+					+ ", " + position.getOrientation() + "]";
+			logger.info(message);
 		}
 	}
 
 	/**
 	 * Cree la tondeuse
 	 */
-	@Override
 	public Tondeuse creerTondeuse(String tondeuseLigne, String positionLigne, Programme programme) {
 		Position position = null;
 		/**
@@ -72,7 +80,10 @@ public class TondeuseServiceImpl implements TondeuseService {
 		return new Tondeuse(tondeuseLigne, position, programme);
 	}
 
-	@Override
+	/**
+	 * Cree un programme a partir d'une liste d'instruction sous forme d'un
+	 * String
+	 */
 	public Programme creerProgramme(String programmeLigne) {
 		Programme programme = new Programme();
 		String[] programmeString = programmeLigne.split("");

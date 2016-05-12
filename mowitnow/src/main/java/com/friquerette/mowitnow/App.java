@@ -5,12 +5,16 @@ import com.friquerette.mowitnow.service.TerrainService;
 import com.friquerette.mowitnow.service.TerrainServiceImpl;
 
 /**
- * The stater in commande line
+ * The stater of the command line
  *
  */
 public class App {
 
 	public static void main(String[] args) {
+
+		// charger fichier
+		// renommer Enum
+		// commenter code
 
 		TerrainService terrainService = new TerrainServiceImpl();
 

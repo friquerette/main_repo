@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Un programme à exécuter par une tondeuse (ou un véhicule)
+ * Un programme a executer par une tondeuse (ou un vehicule)
  * 
  * @author Rick
  *
@@ -12,7 +12,7 @@ import java.util.List;
 public class Programme {
 
 	/**
-	 * La liste de mouvements à effectuer
+	 * La liste de mouvements a effectuer
 	 */
 	private List<Mouvement> mouvements;
 

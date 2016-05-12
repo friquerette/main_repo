@@ -10,12 +10,19 @@ import com.friquerette.mowitnow.entity.Terrain;
  */
 public interface TerrainService {
 
+	/**
+	 * Execute le programme de toutes les tondeuses pour tondre le terrain
+	 */
 	public void tondreTerrain(Terrain terrain);
 
+	/**
+	 * Creer un terrain a partir d'une dimension sous forme de String
+	 */
 	public Terrain creerTerrain(String terrainLigne);
 
 	/**
-	 * Charge une configuration de terrain sous forme d'un tableau de String
+	 * Charge la configuration d'un terrain a partir d'un tableau de String
+	 * contenant egalement des tondeuses
 	 * 
 	 * @param configuration
 	 * @return

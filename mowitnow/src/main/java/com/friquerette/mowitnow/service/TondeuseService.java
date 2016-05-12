@@ -5,6 +5,12 @@ import com.friquerette.mowitnow.entity.Programme;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
 
+/**
+ * Tondeuse service ...
+ * 
+ * @author Rick
+ *
+ */
 public interface TondeuseService {
 
 	/**
@@ -32,6 +38,10 @@ public interface TondeuseService {
 	 */
 	public Tondeuse creerTondeuse(String tondeuseLigne, String programmmeLigne, Programme programme);
 
+	/**
+	 * Cree un programme a partir d'une liste d'instruction sous forme d'un
+	 * String
+	 */
 	public Programme creerProgramme(String programmeLigne);
 
 }

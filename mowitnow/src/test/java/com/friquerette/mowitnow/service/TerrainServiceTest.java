@@ -1,14 +1,12 @@
 package com.friquerette.mowitnow.service;
 
 import static com.friquerette.mowitnow.entity.Orientation.E;
+import static com.friquerette.mowitnow.entity.Orientation.N;
 
 import com.friquerette.mowitnow.DefaultConfig;
 import com.friquerette.mowitnow.entity.Mouvement;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
-import com.friquerette.mowitnow.service.PositionUtil;
-import com.friquerette.mowitnow.service.TerrainService;
-import com.friquerette.mowitnow.service.TerrainServiceImpl;
 
 import junit.framework.TestCase;
 
@@ -25,11 +23,11 @@ public class TerrainServiceTest extends TestCase {
 
 	public void testChargerTerrain() {
 
-		// vérifie le terrain
+		// verifie le terrain
 		assertTrue("X du terrain incorrect", terrain.getMaxX() == 5);
 		assertTrue("Y du terrain incorrect", terrain.getMaxY() == 5);
 
-		// vérifie la tondeuse 2
+		// verifie la tondeuse 2
 		Tondeuse tondeuse = terrain.getTondeuses().get(1);
 		assertTrue("La position de la tondeuse est incorrect",
 				PositionUtil.isPositionEqual(tondeuse.getPosition(), 3, 3, E));
@@ -39,13 +37,17 @@ public class TerrainServiceTest extends TestCase {
 		assertTrue("Le premier mouvement est incorrect",
 				tondeuse.getProgramme().getMouvements().get(0).equals(Mouvement.A));
 
-		assertTrue("Le troisième mouvement est incorrect",
+		assertTrue("Le troisieme mouvement est incorrect",
 				tondeuse.getProgramme().getMouvements().get(2).equals(Mouvement.D));
 	}
 
 	public void testTondreTerrain() {
 		Terrain terrain = terrainService.chargerTerrain(DefaultConfig.DEFAULT_TERRAIN);
 		terrainService.tondreTerrain(terrain);
+		Tondeuse tondeuse0 = terrain.getTondeuses().get(0);
+		assertTrue(PositionUtil.isPositionEqual(tondeuse0.getPosition(), 1, 3, N));
+		Tondeuse tondeuse1 = terrain.getTondeuses().get(1);
+		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 5, 1, E));
 	}
 
 }

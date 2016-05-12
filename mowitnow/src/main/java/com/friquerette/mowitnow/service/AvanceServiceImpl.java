@@ -1,19 +1,29 @@
 package com.friquerette.mowitnow.service;
 
+import static com.friquerette.mowitnow.entity.Orientation.E;
+import static com.friquerette.mowitnow.entity.Orientation.N;
+import static com.friquerette.mowitnow.entity.Orientation.O;
+import static com.friquerette.mowitnow.entity.Orientation.S;
+
 import com.friquerette.mowitnow.entity.Mouvement;
 import com.friquerette.mowitnow.entity.Orientation;
 import com.friquerette.mowitnow.entity.Position;
 
+/**
+ * Service permettant l'avancement d'un engin
+ * 
+ * @author Rick
+ *
+ */
 public class AvanceServiceImpl implements AvanceService {
 
 	/**
-	 * calcul la prochaine position à partir de la position courante
+	 * calcul la prochaine position a partir de la position courante
 	 * 
 	 * @param position
 	 * @param avance
 	 * @return
 	 */
-	@Override
 	public Position calculerProchainPosition(Position position, Mouvement avance) {
 		Position newPosition = new Position();
 		if (position != null && avance != null) {
@@ -25,8 +35,6 @@ public class AvanceServiceImpl implements AvanceService {
 
 	/**
 	 * Calcul la nouvelle direction de la tondeuse
-	 * 
-	 * TODO : first version to be improved without if else ...
 	 * 
 	 * @param position
 	 * @param newPosition
@@ -50,9 +58,8 @@ public class AvanceServiceImpl implements AvanceService {
 	}
 
 	/**
-	 * Mouvement la tondeuse d'un pas
+	 * Avance la tondeuse d'un pas
 	 * 
-	 * TODO : first version to be improved ...
 	 * 
 	 * @param position
 	 * @param newPosition
@@ -63,16 +70,11 @@ public class AvanceServiceImpl implements AvanceService {
 		Orientation orientation = newPosition.getOrientation();
 		newPosition.setX(position.getX());
 		newPosition.setY(position.getY());
-		if (Orientation.N.equals(orientation)) {
-			newPosition.setY(position.getY() + avance.getDistance());
-		} else if (Orientation.S.equals(orientation)) {
-			newPosition.setY(position.getY() - avance.getDistance());
-		} else if (Orientation.E.equals(orientation)) {
-			newPosition.setX(position.getX() + avance.getDistance());
-		} else if (Orientation.O.equals(orientation)) {
-			newPosition.setX(position.getX() - avance.getDistance());
-		} else {
-			throw new MowServiceException("Wrong step for avance");
+		int pas = avance.getDistance() * orientation.getIncrement();
+		if (N.equals(orientation) || S.equals(orientation)) {
+			newPosition.setY(position.getY() + pas);
+		} else if (E.equals(orientation) || O.equals(orientation)) {
+			newPosition.setX(position.getX() + pas);
 		}
 		return newPosition;
 	}

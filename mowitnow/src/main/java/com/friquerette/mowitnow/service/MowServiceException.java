@@ -3,7 +3,7 @@ package com.friquerette.mowitnow.service;
 public class MowServiceException extends RuntimeException {
 
 	/**
-	 * 
+	 * Une exception a specialiser...
 	 */
 	private static final long serialVersionUID = 4582827715570443799L;
 

@@ -4,6 +4,12 @@ import com.friquerette.mowitnow.entity.Orientation;
 import com.friquerette.mowitnow.entity.Position;
 import com.friquerette.mowitnow.entity.Terrain;
 
+/**
+ * Une boite a outils pour gerer les positions
+ * 
+ * @author Rick
+ *
+ */
 public class PositionUtil {
 
 	/**

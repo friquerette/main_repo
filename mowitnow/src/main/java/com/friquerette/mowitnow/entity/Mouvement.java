@@ -1,7 +1,7 @@
 package com.friquerette.mowitnow.entity;
 
 /**
- * All the possible movement for a vehicle
+ * Enum des direction possible
  * 
  * @author Rick
  *
@@ -14,7 +14,13 @@ public enum Mouvement {
 	//
 	A("avance", 1);
 
+	/**
+	 * Avance dans la direction droite/gauche/avance
+	 */
 	private String mouvement;
+	/**
+	 * Distance effectuee
+	 */
 	private int distance;
 
 	private Mouvement(String mouvement, int distance) {
