@@ -6,7 +6,7 @@ package com.friquerette.mowitnow.entity;
  * @author Rick
  *
  */
-public enum Orientation {
+public enum OrientationEnum {
 
 	N("nord", "O", "E", 1),
 	//
@@ -33,7 +33,7 @@ public enum Orientation {
 
 	private int increment;
 
-	private Orientation(String direction, String gauche, String droite, int increment) {
+	private OrientationEnum(String direction, String gauche, String droite, int increment) {
 		this.direction = direction;
 		this.gauche = gauche;
 		this.droite = droite;

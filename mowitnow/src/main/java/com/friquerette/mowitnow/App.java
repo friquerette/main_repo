@@ -13,8 +13,6 @@ public class App {
 	public static void main(String[] args) {
 
 		// charger fichier
-		// renommer Enum
-		// commenter code
 
 		TerrainService terrainService = new TerrainServiceImpl();
 

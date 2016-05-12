@@ -1,6 +1,6 @@
 package com.friquerette.mowitnow.service;
 
-import com.friquerette.mowitnow.entity.Mouvement;
+import com.friquerette.mowitnow.entity.MouvementEnum;
 import com.friquerette.mowitnow.entity.Position;
 
 /**
@@ -18,6 +18,6 @@ public interface AvanceService {
 	 * @param avance
 	 * @return
 	 */
-	public Position calculerProchainPosition(Position position, Mouvement avance);
+	public Position calculerProchainPosition(Position position, MouvementEnum avance);
 
 }

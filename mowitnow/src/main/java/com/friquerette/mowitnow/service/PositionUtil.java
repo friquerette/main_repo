@@ -1,6 +1,6 @@
 package com.friquerette.mowitnow.service;
 
-import com.friquerette.mowitnow.entity.Orientation;
+import com.friquerette.mowitnow.entity.OrientationEnum;
 import com.friquerette.mowitnow.entity.Position;
 import com.friquerette.mowitnow.entity.Terrain;
 
@@ -27,7 +27,7 @@ public class PositionUtil {
 		return positionValide;
 	}
 
-	public static boolean isPositionEqual(Position position, int x, int y, Orientation orientation) {
+	public static boolean isPositionEqual(Position position, int x, int y, OrientationEnum orientation) {
 		boolean isEqual = false;
 		if (position != null && orientation != null) {
 			if (orientation.equals(position.getOrientation()) //

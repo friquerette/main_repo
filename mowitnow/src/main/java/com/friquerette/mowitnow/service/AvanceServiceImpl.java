@@ -1,12 +1,12 @@
 package com.friquerette.mowitnow.service;
 
-import static com.friquerette.mowitnow.entity.Orientation.E;
-import static com.friquerette.mowitnow.entity.Orientation.N;
-import static com.friquerette.mowitnow.entity.Orientation.O;
-import static com.friquerette.mowitnow.entity.Orientation.S;
+import static com.friquerette.mowitnow.entity.OrientationEnum.E;
+import static com.friquerette.mowitnow.entity.OrientationEnum.N;
+import static com.friquerette.mowitnow.entity.OrientationEnum.O;
+import static com.friquerette.mowitnow.entity.OrientationEnum.S;
 
-import com.friquerette.mowitnow.entity.Mouvement;
-import com.friquerette.mowitnow.entity.Orientation;
+import com.friquerette.mowitnow.entity.MouvementEnum;
+import com.friquerette.mowitnow.entity.OrientationEnum;
 import com.friquerette.mowitnow.entity.Position;
 
 /**
@@ -24,7 +24,7 @@ public class AvanceServiceImpl implements AvanceService {
 	 * @param avance
 	 * @return
 	 */
-	public Position calculerProchainPosition(Position position, Mouvement avance) {
+	public Position calculerProchainPosition(Position position, MouvementEnum avance) {
 		Position newPosition = new Position();
 		if (position != null && avance != null) {
 			calculerDirection(position, newPosition, avance);
@@ -41,14 +41,14 @@ public class AvanceServiceImpl implements AvanceService {
 	 * @param avance
 	 * @return
 	 */
-	private Position calculerDirection(Position position, Position newPosition, Mouvement avance) {
-		if (Mouvement.G.equals(avance)) {
+	private Position calculerDirection(Position position, Position newPosition, MouvementEnum avance) {
+		if (MouvementEnum.G.equals(avance)) {
 			String newDirection = position.getOrientation().getGauche();
-			newPosition.setOrientation(Orientation.valueOf(newDirection));
-		} else if (Mouvement.D.equals(avance)) {
+			newPosition.setOrientation(OrientationEnum.valueOf(newDirection));
+		} else if (MouvementEnum.D.equals(avance)) {
 			String newDirection = position.getOrientation().getDroite();
-			newPosition.setOrientation(Orientation.valueOf(newDirection));
-		} else if (Mouvement.A.equals(avance)) {
+			newPosition.setOrientation(OrientationEnum.valueOf(newDirection));
+		} else if (MouvementEnum.A.equals(avance)) {
 			// no change for the direction
 			newPosition.setOrientation(position.getOrientation());
 		} else {
@@ -66,8 +66,8 @@ public class AvanceServiceImpl implements AvanceService {
 	 * @param avance
 	 * @return
 	 */
-	private Position avance(Position position, Position newPosition, Mouvement avance) {
-		Orientation orientation = newPosition.getOrientation();
+	private Position avance(Position position, Position newPosition, MouvementEnum avance) {
+		OrientationEnum orientation = newPosition.getOrientation();
 		newPosition.setX(position.getX());
 		newPosition.setY(position.getY());
 		int pas = avance.getDistance() * orientation.getIncrement();

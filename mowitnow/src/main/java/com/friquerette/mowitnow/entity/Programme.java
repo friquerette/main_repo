@@ -14,18 +14,18 @@ public class Programme {
 	/**
 	 * La liste de mouvements a effectuer
 	 */
-	private List<Mouvement> mouvements;
+	private List<MouvementEnum> mouvements;
 
 	/**
 	 * Is mouvements effectues
 	 */
 	private boolean isDone = false;
 
-	public List<Mouvement> getMouvements() {
+	public List<MouvementEnum> getMouvements() {
 		return mouvements;
 	}
 
-	public void setMouvements(List<Mouvement> mouvements) {
+	public void setMouvements(List<MouvementEnum> mouvements) {
 		this.mouvements = mouvements;
 	}
 
@@ -37,9 +37,9 @@ public class Programme {
 		this.isDone = isDone;
 	}
 
-	public void addMouvement(Mouvement mouvemment) {
+	public void addMouvement(MouvementEnum mouvemment) {
 		if (getMouvements() == null) {
-			setMouvements(new ArrayList<Mouvement>());
+			setMouvements(new ArrayList<MouvementEnum>());
 		}
 		getMouvements().add(mouvemment);
 	}

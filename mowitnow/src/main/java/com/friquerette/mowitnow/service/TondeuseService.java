@@ -1,6 +1,6 @@
 package com.friquerette.mowitnow.service;
 
-import com.friquerette.mowitnow.entity.Mouvement;
+import com.friquerette.mowitnow.entity.MouvementEnum;
 import com.friquerette.mowitnow.entity.Programme;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
@@ -28,7 +28,7 @@ public interface TondeuseService {
 	 * @param tondeuse
 	 * @param avance
 	 */
-	public void executerMouvement(Terrain terrain, Tondeuse tondeuse, Mouvement avance);
+	public void executerMouvement(Terrain terrain, Tondeuse tondeuse, MouvementEnum avance);
 
 	/**
 	 * 

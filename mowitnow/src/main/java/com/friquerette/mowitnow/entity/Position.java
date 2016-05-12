@@ -21,13 +21,13 @@ public class Position {
 	/**
 	 * The current direction
 	 */
-	private Orientation orientation;
+	private OrientationEnum orientation;
 
 	public Position() {
 
 	}
 
-	public Position(int x, int y, Orientation orientation) {
+	public Position(int x, int y, OrientationEnum orientation) {
 		this.x = x;
 		this.y = y;
 		this.orientation = orientation;
@@ -49,11 +49,11 @@ public class Position {
 		this.y = y;
 	}
 
-	public Orientation getOrientation() {
+	public OrientationEnum getOrientation() {
 		return orientation;
 	}
 
-	public void setOrientation(Orientation orientation) {
+	public void setOrientation(OrientationEnum orientation) {
 		this.orientation = orientation;
 	}
 

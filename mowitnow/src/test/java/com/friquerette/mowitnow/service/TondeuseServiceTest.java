@@ -1,11 +1,11 @@
 package com.friquerette.mowitnow.service;
 
-import static com.friquerette.mowitnow.entity.Orientation.E;
-import static com.friquerette.mowitnow.entity.Orientation.N;
-import static com.friquerette.mowitnow.entity.Orientation.O;
-import static com.friquerette.mowitnow.entity.Orientation.S;
+import static com.friquerette.mowitnow.entity.OrientationEnum.E;
+import static com.friquerette.mowitnow.entity.OrientationEnum.N;
+import static com.friquerette.mowitnow.entity.OrientationEnum.O;
+import static com.friquerette.mowitnow.entity.OrientationEnum.S;
 
-import com.friquerette.mowitnow.entity.Mouvement;
+import com.friquerette.mowitnow.entity.MouvementEnum;
 import com.friquerette.mowitnow.entity.Position;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
@@ -33,7 +33,7 @@ public class TondeuseServiceTest extends TestCase {
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 1, 2, N));
 
-		tondeuseService.executerMouvement(terrain, tondeuse1, Mouvement.G);
+		tondeuseService.executerMouvement(terrain, tondeuse1, MouvementEnum.G);
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 0, 2, O));
 	}
@@ -42,7 +42,7 @@ public class TondeuseServiceTest extends TestCase {
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 1, 2, N));
 
-		tondeuseService.executerMouvement(terrain, tondeuse1, Mouvement.D);
+		tondeuseService.executerMouvement(terrain, tondeuse1, MouvementEnum.D);
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 2, 2, E));
 	}
@@ -52,7 +52,7 @@ public class TondeuseServiceTest extends TestCase {
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 1, 2, S));
 
-		tondeuseService.executerMouvement(terrain, tondeuse1, Mouvement.A);
+		tondeuseService.executerMouvement(terrain, tondeuse1, MouvementEnum.A);
 
 		assertTrue(PositionUtil.isPositionEqual(tondeuse1.getPosition(), 1, 1, S));
 	}

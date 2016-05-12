@@ -6,7 +6,7 @@ package com.friquerette.mowitnow.entity;
  * @author Rick
  *
  */
-public enum Mouvement {
+public enum MouvementEnum {
 
 	G("gauche", 1),
 	//
@@ -23,7 +23,7 @@ public enum Mouvement {
 	 */
 	private int distance;
 
-	private Mouvement(String mouvement, int distance) {
+	private MouvementEnum(String mouvement, int distance) {
 		this.mouvement = mouvement;
 		this.distance = distance;
 	}

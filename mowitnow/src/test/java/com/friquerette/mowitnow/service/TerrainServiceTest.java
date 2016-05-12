@@ -1,10 +1,10 @@
 package com.friquerette.mowitnow.service;
 
-import static com.friquerette.mowitnow.entity.Orientation.E;
-import static com.friquerette.mowitnow.entity.Orientation.N;
+import static com.friquerette.mowitnow.entity.OrientationEnum.E;
+import static com.friquerette.mowitnow.entity.OrientationEnum.N;
 
 import com.friquerette.mowitnow.DefaultConfig;
-import com.friquerette.mowitnow.entity.Mouvement;
+import com.friquerette.mowitnow.entity.MouvementEnum;
 import com.friquerette.mowitnow.entity.Terrain;
 import com.friquerette.mowitnow.entity.Tondeuse;
 
@@ -35,10 +35,10 @@ public class TerrainServiceTest extends TestCase {
 		assertTrue("Le programme n'a pas la bonne longeur", tondeuse.getProgramme().getMouvements().size() == 10);
 
 		assertTrue("Le premier mouvement est incorrect",
-				tondeuse.getProgramme().getMouvements().get(0).equals(Mouvement.A));
+				tondeuse.getProgramme().getMouvements().get(0).equals(MouvementEnum.A));
 
 		assertTrue("Le troisieme mouvement est incorrect",
-				tondeuse.getProgramme().getMouvements().get(2).equals(Mouvement.D));
+				tondeuse.getProgramme().getMouvements().get(2).equals(MouvementEnum.D));
 	}
 
 	public void testTondreTerrain() {

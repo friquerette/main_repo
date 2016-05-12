@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.friquerette.mowitnow.entity.Mouvement;
-import com.friquerette.mowitnow.entity.Orientation;
+import com.friquerette.mowitnow.entity.MouvementEnum;
+import com.friquerette.mowitnow.entity.OrientationEnum;
 import com.friquerette.mowitnow.entity.Position;
 import com.friquerette.mowitnow.entity.Programme;
 import com.friquerette.mowitnow.entity.Terrain;
@@ -30,7 +30,7 @@ public class TondeuseServiceImpl implements TondeuseService {
 	 * @param tondeuse
 	 * @param avance
 	 */
-	public void executerMouvement(Terrain terrain, Tondeuse tondeuse, Mouvement avance) {
+	public void executerMouvement(Terrain terrain, Tondeuse tondeuse, MouvementEnum avance) {
 		Position position = tondeuse.getPosition();
 
 		Position newPosition = avanceService.calculerProchainPosition(position, avance);
@@ -47,8 +47,8 @@ public class TondeuseServiceImpl implements TondeuseService {
 	 */
 	public void executerProgramme(Terrain terrain, Tondeuse tondeuse) {
 		if (tondeuse != null && tondeuse.getProgramme() != null && tondeuse.getProgramme().getMouvements() != null) {
-			List<Mouvement> mouvements = tondeuse.getProgramme().getMouvements();
-			for (Mouvement mouvement : mouvements) {
+			List<MouvementEnum> mouvements = tondeuse.getProgramme().getMouvements();
+			for (MouvementEnum mouvement : mouvements) {
 				executerMouvement(terrain, tondeuse, mouvement);
 			}
 			Position position = tondeuse.getPosition();
@@ -72,7 +72,7 @@ public class TondeuseServiceImpl implements TondeuseService {
 			int x = Integer.parseInt(positionTab[0]);
 			int y = Integer.parseInt(positionTab[1]);
 			// failed is not in the Enum
-			Orientation orientation = Orientation.valueOf(positionTab[2]);
+			OrientationEnum orientation = OrientationEnum.valueOf(positionTab[2]);
 			position = new Position(x, y, orientation);
 		} catch (Exception e) {
 			throw new MowServiceException("Failed to read the terrain line", e);
@@ -89,7 +89,7 @@ public class TondeuseServiceImpl implements TondeuseService {
 		String[] programmeString = programmeLigne.split("");
 		for (String mouvement : programmeString) {
 			// failed if not in the Enum...
-			programme.addMouvement(Mouvement.valueOf(mouvement));
+			programme.addMouvement(MouvementEnum.valueOf(mouvement));
 		}
 		return programme;
 	}
