@@ -1,6 +1,10 @@
 package com.friquerette.mowitnow.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
 
@@ -24,6 +28,7 @@ public class TerrainServiceImpl implements TerrainService {
 	/**
 	 * Execute le programme de toutes les tondeuses pour tondre le terrain
 	 */
+	@Override
 	public void tondreTerrain(Terrain terrain) {
 		List<Tondeuse> tondeuses = terrain.getTondeuses();
 		if (tondeuses != null) {
@@ -36,6 +41,7 @@ public class TerrainServiceImpl implements TerrainService {
 	/**
 	 * Creer un terrain a partir d'une dimension sous forme de String
 	 */
+	@Override
 	public Terrain creerTerrain(String terrainLigne) {
 		try {
 			String[] coordonnee = terrainLigne.split(" ");
@@ -54,6 +60,7 @@ public class TerrainServiceImpl implements TerrainService {
 	 * @param configuration
 	 * @return
 	 */
+	@Override
 	public Terrain chargerTerrain(String[] configuration) {
 		if (configuration == null || configuration.length < 1) {
 			throw new MowServiceException("Terrain invalide (Null)");
@@ -65,11 +72,29 @@ public class TerrainServiceImpl implements TerrainService {
 				Tondeuse tondeuse = tondeuseService.creerTondeuse(NAME + i, configuration[i], programme);
 				terrain.addTondeuse(tondeuse);
 			} catch (Exception e) {
-				// La creation a echouee pour cette tondeuse, par les autres
+				// La creation a echouee pas les autres...
 				logger.error("Failed to create the mow " + i, e);
 			}
 		}
 		return terrain;
+	}
+
+	/**
+	 * Charge un terrain a partir d'un fichier
+	 * 
+	 * @param file
+	 * @return
+	 */
+	@Override
+	public Terrain chargerTerrain(String fileName) {
+		String[] stringArray;
+		logger.info("charge fichier " + fileName);
+		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+			stringArray = stream.toArray(size -> new String[size]);
+		} catch (IOException e) {
+			throw new MowServiceException("Echec sur fichier " + fileName, e);
+		}
+		return chargerTerrain(stringArray);
 	}
 
 }

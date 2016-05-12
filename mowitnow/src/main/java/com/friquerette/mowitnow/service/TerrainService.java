@@ -29,4 +29,12 @@ public interface TerrainService {
 	 */
 	public Terrain chargerTerrain(String[] configuration);
 
+	/**
+	 * Charge un terrain a partir d'un fichier
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public Terrain chargerTerrain(String file);
+
 }

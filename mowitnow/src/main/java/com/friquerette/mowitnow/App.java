@@ -12,11 +12,17 @@ public class App {
 
 	public static void main(String[] args) {
 
-		// charger fichier
-
 		TerrainService terrainService = new TerrainServiceImpl();
 
-		Terrain terrain = terrainService.chargerTerrain(DefaultConfig.DEFAULT_TERRAIN);
+		Terrain terrain;
+		if (args != null && args.length == 1) {
+			String file;
+			// file="C:/Users/Rick/git/main_repo/mowitnow/target/classes/terrain.txt";
+			file = args[0];
+			terrain = terrainService.chargerTerrain(file);
+		} else {
+			terrain = terrainService.chargerTerrain(DefaultConfig.DEFAULT_TERRAIN);
+		}
 
 		terrainService.tondreTerrain(terrain);
 
