@@ -1,4 +1,4 @@
-Application de gestion de tondeuses automatique pour la société MowItNow
+Application de gestion de tondeuses automatiques pour la société MowItNow
 
 Cette application maven utilise le JDK8. Elle requière les dépendances log4J 1.2.17 et Junit 3.8.1.
 
