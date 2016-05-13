@@ -88,8 +88,10 @@ public class TondeuseServiceImpl implements TondeuseService {
 		Programme programme = new Programme();
 		String[] programmeString = programmeLigne.split("");
 		for (String mouvement : programmeString) {
-			// failed if not in the Enum...
-			programme.addMouvement(MouvementEnum.valueOf(mouvement));
+			if (mouvement != null && !"".equals(mouvement)) {
+				// failed if not in the Enum...
+				programme.addMouvement(MouvementEnum.valueOf(mouvement));
+			}
 		}
 		return programme;
 	}
