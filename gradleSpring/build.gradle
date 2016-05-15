@@ -46,7 +46,7 @@ apply plugin: 'eclipse-wtp'
   task deploy (dependsOn: war){
     copy {
         from "build/libs"
-        into "D:/Apache Software Foundation/Tomcat 8.0/webapps"
+        into "C:/Java/apache-tomcat-8.0.32/webapps"
         include "*.war"
     }
   }
