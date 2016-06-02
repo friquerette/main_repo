@@ -15,7 +15,7 @@ import fr.friquerette.gradlews.model.Track;
 public class HelloWorldRT {
 
 	/**
-	 * @url : "http://localhost:8080/gradleWS/rest/helloRT/get/Muse/Drones"
+	 * @url "http://localhost:8080/gradleSimpleWS/rest/helloRT/get/Muse/Drones"
 	 * @param singer
 	 * @param title
 	 * @return
@@ -28,6 +28,19 @@ public class HelloWorldRT {
 		track.setSinger(singer);
 		track.setTitle(title);
 		return track;
+
+	}
+
+	/**
+	 * @url "http://localhost:8080/gradleSimpleWS/rest/helloRT/hello/"
+	 * 
+	 * @return
+	 */
+	@GET
+	@Path("/hello")
+	@Produces("application/json")
+	public String getMsg() {
+		return "hello";
 
 	}
 

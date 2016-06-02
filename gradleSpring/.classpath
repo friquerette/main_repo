@@ -74,7 +74,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/com.sun.jersey/jersey-server/1.8/c9738ed03437214a72c87aa717323a8813e3b2fc/jersey-server-1.8-sources.jar" kind="lib" path="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/com.sun.jersey/jersey-server/1.8/6da1231f5e2d7a9f7d194e292fc3695ba7710b2f/jersey-server-1.8.jar">
+	<classpathentry kind="lib" path="C:/Users/Rick/.m2/repository/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -134,7 +134,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" kind="lib" path="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
+	<classpathentry kind="lib" path="C:/Users/Rick/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -164,12 +164,12 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/asm/asm/3.1/2eaa4de56203f433f287a6df5885ef9ad3c5bcae/asm-3.1-sources.jar" kind="lib" path="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/asm/asm/3.1/c157def142714c544bdea2e6144645702adf7097/asm-3.1.jar">
+	<classpathentry kind="lib" path="C:/Users/Rick/.m2/repository/asm/asm/3.1/asm-3.1.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/com.sun.jersey/jersey-core/1.8/a0d5ce55e1c1cd66c714f4d707395b0097a2d04c/jersey-core-1.8-sources.jar" kind="lib" path="C:/Users/Rick/.gradle/caches/modules-2/files-2.1/com.sun.jersey/jersey-core/1.8/b6a0553c0eb3da45a9b8947a0a7283b3b9266d0d/jersey-core-1.8.jar">
+	<classpathentry kind="lib" path="C:/Users/Rick/.m2/repository/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

@@ -33,6 +33,10 @@ apply plugin: 'eclipse-wtp'
     compile 'org.apache.oltu.oauth2:org.apache.oltu.oauth2.authzserver:'+oltuVersion
     compile 'org.apache.oltu.oauth2:org.apache.oltu.oauth2.resourceserver:'+oltuVersion
     
+	// http://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+	compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.2.2'
+
+    
     compile 'org.apache.httpcomponents:httpclient:'+httpclientVersion
     
     
