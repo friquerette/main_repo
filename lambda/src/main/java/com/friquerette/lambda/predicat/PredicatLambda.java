@@ -15,8 +15,14 @@ public class PredicatLambda {
 		people.add(new Person("Mike", 73));
 
 		Predicate<Person> predOlder = (p) -> (p.getAge() >= 65);
+		Predicate<Person> predYounger = (p) -> (p.getAge() <= 40);
+		displayPeople(people, predOlder);
+		displayPeople(people, predYounger);
+	}
+
+	private static void displayPeople(List<Person> people, Predicate<Person> pred) {
 		people.forEach(p -> {
-			if (predOlder.test(p)) {
+			if (pred.test(p)) {
 				System.out.println("c'est un vieux : " + p.getName());
 			}
 		});
