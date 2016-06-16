@@ -20,7 +20,7 @@ public class FindFile {
 	}
 
 	public static String findFile(String directory, String fileToFind) {
-		String patFind = null;
+		String pathFind = null;
 		try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(Paths.get(directory))) {
 			for (Path path : directoryStream) {
 				if (path.toFile().isDirectory()) {
@@ -38,6 +38,6 @@ public class FindFile {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		return patFind;
+		return pathFind;
 	}
 }
