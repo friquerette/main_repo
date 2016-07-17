@@ -3,6 +3,7 @@ package com.friquerette.collection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -11,18 +12,86 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.NavigableMap;
+import java.util.NoSuchElementException;
+import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class CollectionTest {
 	public static void main(String... arg) throws Exception {
-		treemap();
+		deque();
+
+	}
+
+	public static void deque() {
+		Deque<String> dequeA = new LinkedList<>();
+		dequeA.add("Harrison");
+		dequeA.add("McCartney");
+		dequeA.addLast("Starr");
+		dequeA.addFirst("Lennon");
+		System.out.println(dequeA);
+		// Copy in other deque
+		Deque<String> dequeB = new LinkedList<>();
+		dequeB.addAll(dequeA);
+		Deque<String> dequeC = new LinkedList<>();
+		dequeC.addAll(dequeA);
+		while (!dequeA.isEmpty()) {
+			System.out.println("Removing from first " + dequeA.removeFirst());
+		}
+		System.out.println("---");
+		while (!dequeB.isEmpty()) {
+			System.out.println("Removing from last " + dequeB.removeLast());
+		}
+		System.out.println("---");
+		System.out.println(dequeC);
+		System.out.println("Read Last " + dequeC.getLast());
+		System.out.println("Read First " + dequeC.getFirst());
+		System.out.println("Read (peek) Last " + dequeC.peekLast());
+		System.out.println("Read (peek) First " + dequeC.peekFirst());
+		System.out.println("Remove (poll) Last " + dequeC.pollLast());
+		System.out.println("Remove (poll) First " + dequeC.pollFirst());
+		System.out.println(dequeC);
+	}
+
+	public static void queue() {
+		Queue<String> loginSequence = new LinkedList<>();
+		loginSequence.add("Harrison");
+		loginSequence.add("McCartney");
+		loginSequence.add("Starr");
+		loginSequence.add("Lennon");
+		System.out.println("The login sequence is: " + loginSequence);
+		LinkedList<String> copySequence = new LinkedList<>();
+		copySequence.addAll(loginSequence);
+		while (!loginSequence.isEmpty()) {
+			System.out.println("Removing " + loginSequence.remove());
+		}
+		System.out.println("The empty login sequence is: " + loginSequence);
+		loginSequence.peek();
+		loginSequence.poll();
+		try {
+			loginSequence.element();
+		} catch (NoSuchElementException e) {
+			System.out.println("error : no element");
+		}
+		System.out.println("The copySequence sequence is: " + copySequence);
+		System.out.println("getLast " + copySequence.getLast());
+		System.out.println("The copySequence sequence is: " + copySequence);
+		// Retrieves and removes the head (first element) of this list.
+		// throws NoSuchElementException if this list is empty
+		System.out.println("remove " + copySequence.remove());
+		System.out.println("The copySequence sequence is: " + copySequence);
+		// read the element but leave it in the queue
+		System.out.println("peek " + copySequence.peek());
+		System.out.println("The copySequence sequence is: " + copySequence);
+		// idem remove but no exception return null
+		System.out.println("poll " + copySequence.poll());
+		System.out.println("The copySequence sequence is: " + copySequence);
 	}
 
 	public static void treemap() {
-		Comparator<Integer> comparatorReverse = (Integer u1, Integer u2) -> u1.compareTo(u2);
-		NavigableMap<Integer, String> examScores = new TreeMap<Integer, String>(comparatorReverse);
+		Comparator<Integer> comparator = (Integer u1, Integer u2) -> u1.compareTo(u2);
+		NavigableMap<Integer, String> examScores = new TreeMap<>(comparator);
 		examScores.put(90, "Sophia");
 		examScores.put(20, "Isabella");
 		examScores.put(10, "Emma");
@@ -34,7 +103,7 @@ public class CollectionTest {
 	}
 
 	public static void hashset2() {
-		Map<String, String> misspeltWords = new HashMap<String, String>();
+		Map<String, String> misspeltWords = new HashMap<>();
 		misspeltWords.put("calender", "calendar");
 		misspeltWords.put("tomatos", "tomatoes");
 		misspeltWords.put("existance", "existence");
@@ -59,7 +128,7 @@ public class CollectionTest {
 
 		};
 		String pangram = "the quick brown fox jumps over the lazy dog";
-		Set<Character> aToZee = new TreeSet<Character>(comparatorReverse);
+		Set<Character> aToZee = new TreeSet<>(comparatorReverse);
 		for (char gram : pangram.toCharArray())
 			aToZee.add(gram);
 		System.out.println("The pangram is: " + pangram);
@@ -80,7 +149,7 @@ public class CollectionTest {
 
 	public static void palindrome() {
 		String palStr = "abcba";
-		LinkedList<Character> palindrome = new LinkedList<Character>();
+		List<Character> palindrome = new LinkedList<Character>();
 		for (char ch : palStr.toCharArray())
 			palindrome.add(ch);
 		System.out.println("Input string is: " + palStr);
