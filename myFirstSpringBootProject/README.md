@@ -1,0 +1,1 @@
+A small project to use Spring Boot with JPA and Oracle for the BDD. A entry point Rest for the Web part.
